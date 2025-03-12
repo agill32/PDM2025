@@ -26,6 +26,15 @@ function draw() {
 
 function mouseClicked()
 { tin = 255;
+  startAudioContext();
   env.triggerAttackRelease(15);
   noise.volume.setValueCurveAtTime(vals, Tone.now(), 15);
 }
+
+function startAudioContext() {
+  if (Tone.context.state != 'running') {
+    Tone.start();
+    console.log("Audio Context Started")
+  } else 
+  { console.log("Audio Context is already running") } 
+ }
